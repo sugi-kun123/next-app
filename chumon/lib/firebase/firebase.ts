@@ -15,6 +15,3 @@ const firebaseConfig = {
 
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 export const db = getFirestore(app);
-
-// 必要であれば認証、ストレージなどもここでエクスポート
-// export const auth = getAuth(app);
