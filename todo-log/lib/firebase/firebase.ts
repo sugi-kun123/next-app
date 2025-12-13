@@ -14,4 +14,6 @@ const firebaseConfig = {
 };
 
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+console.log("🛠️ API KEY CHECK:", process.env.NEXT_PUBLIC_FIREBASE_API_KEY ? "✅ OK" : "❌ EMPTY");
+console.log("🛠️ PROJECT ID:", process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID);
 export const db = getFirestore(app);
