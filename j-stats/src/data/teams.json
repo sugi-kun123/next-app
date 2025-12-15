@@ -1,0 +1,116 @@
+[
+  {
+    "id": "kawasaki-frontale",
+    "name": "川崎フロンターレ",
+    "hometown": "神奈川県川崎市",
+    "stats": [
+      { "year": 2023, "rank": 8, "win": 14, "draw": 8, "loss": 12 },
+      { "year": 2022, "rank": 2, "win": 20, "draw": 6, "loss": 8 },
+      { "year": 2017, "rank": 1, "win": 21, "draw": 9, "loss": 4 }
+    ]
+  },
+  {
+    "id": "yokohama-f-marinos",
+    "name": "横浜F・マリノス",
+  },
+  {
+    "id": "gamba-osaka",
+    "name": "ガンバ大阪",
+  },
+  {
+    "id": "cerezo-osaka",
+    "name": "セレッソ大阪",
+  },
+  {
+    "id": "nagoya-grampus",
+    "name": "名古屋グランパス",
+  },
+  {
+    "id": "sanfrecce-hiroshima",
+    "name": "サンフレッチェ広島",
+  },
+  {
+    "id": "kashima-antlers",
+    "name": "鹿島アントラーズ",
+  },
+  {
+    "id": "fc-tokyo",
+    "name": "FC東京",
+  },
+  {
+    "id": "shimizu-s-pulse",
+    "name": "清水エスパルス",
+  },
+  {
+    "id": "vegalta-sendai",
+    "name": "ベガルタ仙台",
+  },
+  {
+    "id": "sagan-tosu",
+    "name": "サガン鳥栖",
+  },
+  {
+    "id": "kashiwa-reysol",
+    "name": "柏レイソル",
+  },
+  {
+    "id": "urawa-reds",
+    "name": "浦和レッズ",
+  },
+  {
+    "id": "shonan-bellmare",
+    "name": "湘南ベルマーレ",
+  },
+  {
+    "id": "vissel-kobe",
+    "name": "ヴィッセル神戸",
+  },
+  {
+    "id": "albirex-niigata",
+    "name": "アルビレックス新潟",
+  },
+  {
+    "id": "montedio-yamagata",
+    "name": "モンテディオ山形",
+  },
+  {
+    "id": "jef-united-chiba",
+    "name": "ジェフユナイテッド千葉",
+  },
+  {
+    "id": "roasso-kumamoto",
+    "name": "ロアッソ熊本",
+  },
+  {
+    "id": "matsumoto-yamaga",
+    "name": "松本山雅FC",
+  },
+  {
+    "id": "fagiano-okayama",
+    "name": "ファジアーノ岡山",
+  },
+  {
+    "id": "tokushima-vortis",
+    "name": "徳島ヴォルティス",
+  },
+  {
+    "id": "zweigen-kanazawa",
+    "name": "ツエーゲン金沢",
+  },
+  {
+    "id": "fukuoka",
+    "name": "アビスパ福岡",
+  },
+  {
+    "id": "Tochigi-sca",
+    "name": "栃木SC",
+  },
+  {
+    "id": "yamagata",
+    "name": "モンテディオ山形",
+  },
+  {
+    "id": "mie",
+    "name": "FC三重",
+  },
+]
