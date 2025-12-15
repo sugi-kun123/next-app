@@ -95,25 +95,6 @@
     ]
   },
   {
-    "id": "nagoya-grampus",
-    "name": "名古屋グランパス",
-    "hometown": "aaaaaaaaa",
-    "color": "#e6002d",
-    "logo": "/logos/.png",
-    "since": 1980,
-    "stats": [
-      { "year": 2025, "category": "J1", "rank": 0, "win": 0, "draw": 0, "loss": 0 },
-      { "year": 2024, "category": "J1", "rank": 0, "win": 0, "draw": 0, "loss": 0 },
-      { "year": 2023, "category": "J1", "rank": 0, "win": 0, "draw": 0, "loss": 0 },
-      { "year": 2022, "category": "J1", "rank": 0, "win": 0, "draw": 0, "loss": 0 },
-      { "year": 2021, "category": "J1", "rank": 0, "win": 0, "draw": 0, "loss": 0 },
-      { "year": 2020, "category": "J1", "rank": 0, "win": 0, "draw": 0, "loss": 0 },
-      { "year": 2019, "category": "J1", "rank": 0, "win": 0, "draw": 0, "loss": 0 },
-      { "year": 2018, "category": "J1", "rank": 0, "win": 0, "draw": 0, "loss": 0 },
-      { "year": 2017, "category": "J1", "rank": 0, "win": 0, "draw": 0, "loss": 0 }
-    ]
-  },
-  {
     "id": "sanfrecce-hiroshima",
     "name": "サンフレッチェ広島",
     "hometown": "aaaaaaaaa",
@@ -822,25 +803,6 @@
     "hometown": "aaaaaaaaa",
     "color": "#eb6100",
     "logo": "/logos/ac-nagano-parceiro.png",
-    "since": 1980,
-    "stats": [
-      { "year": 2025, "category": "J1", "rank": 0, "win": 0, "draw": 0, "loss": 0 },
-      { "year": 2024, "category": "J1", "rank": 0, "win": 0, "draw": 0, "loss": 0 },
-      { "year": 2023, "category": "J1", "rank": 0, "win": 0, "draw": 0, "loss": 0 },
-      { "year": 2022, "category": "J1", "rank": 0, "win": 0, "draw": 0, "loss": 0 },
-      { "year": 2021, "category": "J1", "rank": 0, "win": 0, "draw": 0, "loss": 0 },
-      { "year": 2020, "category": "J1", "rank": 0, "win": 0, "draw": 0, "loss": 0 },
-      { "year": 2019, "category": "J1", "rank": 0, "win": 0, "draw": 0, "loss": 0 },
-      { "year": 2018, "category": "J1", "rank": 0, "win": 0, "draw": 0, "loss": 0 },
-      { "year": 2017, "category": "J1", "rank": 0, "win": 0, "draw": 0, "loss": 0 }
-    ]
-  },
-  {
-    "id": "fagiano-okayama",
-    "name": "ファジアーノ岡山",
-    "hometown": "aaaaaaaaa",
-    "color": "#b6003d",
-    "logo": "/logos/.png",
     "since": 1980,
     "stats": [
       { "year": 2025, "category": "J1", "rank": 0, "win": 0, "draw": 0, "loss": 0 },
