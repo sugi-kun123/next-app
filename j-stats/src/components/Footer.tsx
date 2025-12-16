@@ -12,7 +12,7 @@ const Footer: React.FC<FooterProps> = ({
 
   return (
     <footer className="w-full border-t border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 mt-12 py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center text-sm space-y-4 sm:space-y-0">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center text-sm space-y-4 sm:space-y-0">
 
         <p className="text-gray-500 dark:text-zinc-400">
           &copy; {currentYear} {creatorName}. All Rights Reserved.

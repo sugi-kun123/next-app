@@ -1,6 +1,5 @@
 import teamsData from "@/data/teams.json";
 import { Team } from "@/types/team";
-import Link from "next/link";
 import TeamStandingChart from "@/components/TeamStandingChart";
 import { notFound } from "next/navigation";
 
@@ -14,13 +13,12 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ id:
   if (!team) notFound();
 
   return (
-    <div className="px-4 py-8 max-w-4xl mx-auto">
-      <Link href="/" className="text-blue-500 hover:underline">← 一覧に戻る</Link>
-      <h1 className="text-4xl font-bold mt-4 mb-2">{team.name}</h1>
-      <h5 className="text-lg font-semibold mb-4">監督: {team.stats[0].coach}</h5>
-      <p className="text-gray-500">ホームスタジアム: {team.stadium}</p>
-      <p className="text-gray-500">ホームタウン: {team.hometown}</p>
-      <p className="text-gray-500 mb-4">創設: {team.since}年</p>
+    <div className="px-4 py-8 max-w-6xl mx-auto">
+      <h1 className="text-2xl font-bold mt-4 mb-2">{team.name}</h1>
+      <h5 className="text-md font-semibold mb-4">監督: {team.stats[0].coach}</h5>
+      <p className="text-sm text-gray-500">ホームスタジアム: {team.stadium}</p>
+      <p className="text-sm text-gray-500">ホームタウン: {team.hometown}</p>
+      <p className="text-sm text-gray-500 mb-4">創設: {team.since}年</p>
       <div
         className="w-full h-2 mb-4 rounded-full"
         style={{ backgroundColor: team.color }}
@@ -32,8 +30,8 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ id:
             <th className="w-1/10 pl-2 py-2">シーズン</th>
             <th className="w-1/10 py-2 text-center">カテゴリ</th>
             <th className="w-2/10 py-2 text-center">成績</th>
-            <th className="w-2/10 py-2">W-D-L</th>
-            <th className="w-4/10 py-2">監督</th>
+            <th className="w-2/10 pl-2 py-2">W-D-L</th>
+            <th className="w-4/10 pl-2 py-2">監督</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-100 dark:divide-zinc-800">
@@ -60,8 +58,8 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ id:
                   {s.rank === 1 ? "🏆優勝" : s.rank === 0 ? "-" : `${s.rank}位`}
                 </span>
               </td>
-              <td className="w-2/10 py-2 text-gray-500 text-sm font-mono">{s.win}-{s.draw}-{s.loss}</td>
-              <td className="w-4/10 py-2 text-sm">{s.coach}</td>
+              <td className="w-2/10 pl-2 py-2 text-gray-500 text-sm font-mono">{s.win}-{s.draw}-{s.loss}</td>
+              <td className="w-4/10 pl-2 py-2 text-sm">{s.coach}</td>
             </tr>
           ))}
         </tbody>
