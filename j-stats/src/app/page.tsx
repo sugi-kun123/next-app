@@ -48,7 +48,7 @@ export default function Home() {
   }, [searchTerm, filterCategory, teams]);
 
   return (
-    <main className="p-8 max-w-6xl mx-auto min-h-screen">
+    <main className="px-4 py-8 max-w-6xl mx-auto min-h-screen">
       <h1 className="text-3xl font-bold mb-4">Jリーグチーム成績データベース - J-Stats</h1>
       <p className="text-gray-500 mb-8">
         J1-3に所属するチームのリーグ成績を年度別にまとめています。クリックまたはタップして各チームの詳細を確認できます。
@@ -87,11 +87,11 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-4">
         {filteredTeams.length > 0 ? (
           filteredTeams.map((team) => (
             <Link href={`/teams/${team.id}`} key={team.id}>
-              <div className="border border-gray-200 dark:border-zinc-800 rounded-2xl p-6 hover:shadow-xl hover:scale-[1.02] transition-all cursor-pointer bg-white dark:bg-zinc-900 h-full flex flex-col">
+              <div className="border border-gray-200 dark:border-zinc-800 rounded-2xl px-2 py-4 hover:shadow-xl hover:scale-[1.02] transition-all cursor-pointer bg-white dark:bg-zinc-900 h-full flex flex-col">
                 <div
                   className="w-full h-1.5 mb-5 rounded-full"
                   style={{ backgroundColor: team.color }}

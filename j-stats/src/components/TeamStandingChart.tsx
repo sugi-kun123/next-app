@@ -57,7 +57,7 @@ export default function TeamStandingChart({ stats, teamColor }: Props) {
   return (
     <div className="w-full h-[500px] mt-8">
       <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={chartData} margin={{ top: 20, right: 10, left: 10, bottom: 0 }}>
+        <LineChart data={chartData} margin={{ top: 20, right: 5, left: 0, bottom: 0 }}>
           <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
 
           <ReferenceArea y1={1} y2={20} fill="red" fillOpacity={0.2} />
