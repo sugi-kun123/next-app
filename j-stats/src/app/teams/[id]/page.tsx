@@ -55,7 +55,7 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ id:
                 <span className={`inline-block px-3 py-1 rounded-full text-sm font-bold ${
                   s.rank === 1 ? "bg-yellow-100 text-yellow-700" : "bg-gray-100 dark:bg-zinc-800"
                 }`}>
-                  {s.rank === 1 ? "🏆優勝" : s.rank === 0 ? "-" : `${s.rank}位`}
+                  {s.rank === 1 ? "優勝" : s.rank === 0 ? "-" : `${s.rank}位`}
                 </span>
               </td>
               <td className="w-2/10 pl-2 py-2 text-gray-500 text-sm font-mono">{s.win}-{s.draw}-{s.loss}</td>
