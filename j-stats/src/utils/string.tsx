@@ -5,7 +5,7 @@
  * @param maxLength 最大文字数
  * @returns 省略された、または元の文字列
  */
-export const truncateString = (text, maxLength = 15) => {
+export const truncateString = (text: string, maxLength: number = 15) => {
   if (text.length <= maxLength) {
     return text;
   }
