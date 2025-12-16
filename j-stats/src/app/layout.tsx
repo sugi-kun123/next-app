@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "J-Stats",
-  description: "J1-3に所属するチームのリーグ成績を年度別にまとめています",
+  title: "Jリーグチーム成績データベース - J-Stats",
+  description: "J1-3に所属するチームのリーグ成績を年度別にまとめています。2ステージ制は合算と最終順位で表示してます。",
 };
 
 export default function RootLayout({

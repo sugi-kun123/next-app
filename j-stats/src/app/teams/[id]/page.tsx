@@ -16,9 +16,11 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ id:
   return (
     <div className="p-8 max-w-4xl mx-auto">
       <Link href="/" className="text-blue-500 hover:underline">← 一覧に戻る</Link>
-      <h1 className="text-4xl font-bold mt-4">{team.name}</h1>
-      <h5 className="text-lg font-semibold">監督: {team.stats[0].coach}</h5>
-      <p className="text-gray-500 mb-4">創設: {team.since}年 | ホームスタジアム: {team.stadium}</p>
+      <h1 className="text-4xl font-bold mt-4 mb-2">{team.name}</h1>
+      <h5 className="text-lg font-semibold mb-4">監督: {team.stats[0].coach}</h5>
+      <p className="text-gray-500">ホームスタジアム: {team.stadium}</p>
+      <p className="text-gray-500">ホームタウン: {team.hometown}</p>
+      <p className="text-gray-500 mb-4">創設: {team.since}年</p>
       <div
         className="w-full h-2 mb-4 rounded-full"
         style={{ backgroundColor: team.color }}

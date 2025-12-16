@@ -5,6 +5,9 @@ import { useState, useMemo } from "react";
 import teamsData from "@/data/teams.json";
 import { Team } from "@/types/team";
 import Link from "next/link";
+import Footer from "@/components/Footer";
+import { House } from 'lucide-react';
+import { truncateString } from '@/utils/string';
 
 export default function Home() {
   const teams = teamsData as Team[];
@@ -16,7 +19,8 @@ export default function Home() {
     const filtered = teams.filter((team) => {
       const matchesSearch =
         team.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        team.stadium.toLowerCase().includes(searchTerm.toLowerCase());
+        team.stadium.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        team.hometown.toLowerCase().includes(searchTerm.toLowerCase());
 
       const latestCategory = team.stats[0]?.category;
       const matchesCategory = filterCategory === "All" || latestCategory === filterCategory;
@@ -45,10 +49,15 @@ export default function Home() {
 
   return (
     <main className="p-8 max-w-6xl mx-auto min-h-screen">
-      <h1 className="text-3xl font-bold mb-4">J-Stats: チーム一覧</h1>
+      <h1 className="text-3xl font-bold mb-4">Jリーグチーム成績データベース - J-Stats</h1>
       <p className="text-gray-500 mb-8">
-        J1~J3に所属するチームのリーグ成績を年度別にまとめています。クリックまたはタップして各チームの詳細を確認できます。
+        J1-3に所属するチームのリーグ成績を年度別にまとめています。クリックまたはタップして各チームの詳細を確認できます。
       </p>
+      <ul className="list-none list-inside mb-8 text-gray-500">
+        <li>* 2ステージ制は合算と最終順位で表示してます。</li>
+        <li>* データは随時更新しています。</li>
+      </ul>
+      <h2 className="text-2xl font-bold mb-4">チーム一覧</h2>
 
       <div className="flex flex-col md:flex-row gap-4 mb-8">
         <div className="flex-1">
@@ -88,8 +97,13 @@ export default function Home() {
                   style={{ backgroundColor: team.color }}
                 />
                 <h2 className="text-xl font-bold mb-1">{team.name}</h2>
-                <p className="text-gray-400 text-xs mb-4">{team.stadium}</p>
-
+                <div className="flex items-center text-sm text-gray-400 mb-4">
+                  <House className="inline mr-2" size={10} />
+                  <div className="inline-block align-middle">
+                    <p className="text-gray-400 text-xs mb-1">{truncateString(team.stadium, 15)}</p>
+                    <p className="text-gray-400 text-xs">{truncateString(team.hometown, 15)}</p>
+                  </div>
+                </div>
                 <div className="mt-auto pt-4 border-t border-gray-50 dark:border-zinc-800">
                   <div className="flex justify-between items-center text-sm">
                     <span className="text-gray-500">{team.stats[0]?.category} 順位</span>
@@ -109,6 +123,7 @@ export default function Home() {
           </div>
         )}
       </div>
+      <Footer />
     </main>
   );
 }

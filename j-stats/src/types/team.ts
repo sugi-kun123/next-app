@@ -13,6 +13,7 @@ export interface Team {
   id: string;
   name: string;
   stadium: string;
+  hometown: string;
   color: string;
   logo: string;
   since: number;
