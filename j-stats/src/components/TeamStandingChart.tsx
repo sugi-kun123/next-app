@@ -46,7 +46,7 @@ export default function TeamStandingChart({ stats, teamColor }: Props) {
     .filter(s => s.rank > 0)
     .sort((a, b) => a.year - b.year)
     .map(s => {
-      let displayRank = s.rank;
+      let displayRank: number | null = s.rank;
       if (s.category === "J2") displayRank = s.rank + 22;
       if (s.category === "J3") displayRank = s.rank + 44;
       if (s.category === "JFL" ) displayRank = null; // 表示しない
