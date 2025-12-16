@@ -1,65 +1,114 @@
-import Image from "next/image";
+// j-stats/src/app/page.tsx
+"use client";
+
+import { useState, useMemo } from "react";
+import teamsData from "@/data/teams.json";
+import { Team } from "@/types/team";
+import Link from "next/link";
 
 export default function Home() {
+  const teams = teamsData as Team[];
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filterCategory, setFilterCategory] = useState("All");
+
+  const filteredTeams = useMemo(() => {
+    const filtered = teams.filter((team) => {
+      const matchesSearch =
+        team.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        team.stadium.toLowerCase().includes(searchTerm.toLowerCase());
+
+      const latestCategory = team.stats[0]?.category;
+      const matchesCategory = filterCategory === "All" || latestCategory === filterCategory;
+
+      return matchesSearch && matchesCategory;
+    });
+
+    return filtered.sort((a, b) => {
+      const aStat = a.stats[0];
+      const bStat = b.stats[0];
+
+      const categoryOrder: { [key: string]: number } = { "J1": 1, "J2": 2, "J3": 3 };
+      const aCatRank = categoryOrder[aStat?.category] || 99;
+      const bCatRank = categoryOrder[bStat?.category] || 99;
+
+      if (aCatRank !== bCatRank) {
+        return aCatRank - bCatRank;
+      }
+
+      const aRank = aStat?.rank === 0 ? 999 : aStat?.rank || 999;
+      const bRank = bStat?.rank === 0 ? 999 : bStat?.rank || 999;
+
+      return aRank - bRank;
+    });
+  }, [searchTerm, filterCategory, teams]);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="p-8 max-w-6xl mx-auto min-h-screen">
+      <h1 className="text-3xl font-bold mb-4">J-Stats: チーム一覧</h1>
+      <p className="text-gray-500 mb-8">
+        J1~J3に所属するチームのリーグ成績を年度別にまとめています。クリックまたはタップして各チームの詳細を確認できます。
+      </p>
+
+      <div className="flex flex-col md:flex-row gap-4 mb-8">
+        <div className="flex-1">
+          <input
+            type="text"
+            placeholder="チーム名やホームタウンで検索..."
+            className="w-full px-4 py-2 border rounded-xl dark:bg-zinc-900 dark:border-zinc-800 focus:ring-2 focus:ring-blue-500 outline-none"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="flex bg-gray-100 dark:bg-zinc-800 p-1 rounded-xl">
+          {["All", "J1", "J2", "J3"].map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setFilterCategory(cat)}
+              className={`px-4 py-1.5 rounded-lg text-sm font-bold transition-all ${
+                filterCategory === cat
+                  ? "bg-white dark:bg-zinc-700 shadow-sm"
+                  : "text-gray-500 hover:text-gray-700 dark:hover:text-zinc-300"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
         </div>
-      </main>
-    </div>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {filteredTeams.length > 0 ? (
+          filteredTeams.map((team) => (
+            <Link href={`/teams/${team.id}`} key={team.id}>
+              <div className="border border-gray-200 dark:border-zinc-800 rounded-2xl p-6 hover:shadow-xl hover:scale-[1.02] transition-all cursor-pointer bg-white dark:bg-zinc-900 h-full flex flex-col">
+                <div
+                  className="w-full h-1.5 mb-5 rounded-full"
+                  style={{ backgroundColor: team.color }}
+                />
+                <h2 className="text-xl font-bold mb-1">{team.name}</h2>
+                <p className="text-gray-400 text-xs mb-4">{team.stadium}</p>
+
+                <div className="mt-auto pt-4 border-t border-gray-50 dark:border-zinc-800">
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-gray-500">{team.stats[0]?.category} 順位</span>
+                    <span className="font-bold">{team.stats[0]?.rank === 0 ? "-" : `${team.stats[0]?.rank}位`}</span>
+                  </div>
+                  <div className="flex justify-between items-center text-xs mt-1 font-mono text-gray-400">
+                    <span>戦績</span>
+                    <span>{team.stats[0]?.win}勝-{team.stats[0]?.draw}分-{team.stats[0]?.loss}負</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          ))
+        ) : (
+          <div className="col-span-full py-20 text-center text-gray-500">
+            一致するチームが見つかりませんでした。
+          </div>
+        )}
+      </div>
+    </main>
   );
 }
