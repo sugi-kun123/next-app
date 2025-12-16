@@ -5,6 +5,7 @@ import { useState, useMemo } from "react";
 import teamsData from "@/data/teams.json";
 import { Team } from "@/types/team";
 import Link from "next/link";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const teams = teamsData as Team[];
@@ -45,10 +46,13 @@ export default function Home() {
 
   return (
     <main className="p-8 max-w-6xl mx-auto min-h-screen">
-      <h1 className="text-3xl font-bold mb-4">J-Stats: チーム一覧</h1>
+      <h1 className="text-3xl font-bold mb-4">Jリーグチーム成績データベース - J-Stats</h1>
       <p className="text-gray-500 mb-8">
-        J1~J3に所属するチームのリーグ成績を年度別にまとめています。クリックまたはタップして各チームの詳細を確認できます。
+        J1-3に所属するチームのリーグ成績を年度別にまとめています。<br />
+        2ステージ制は合算と最終順位で表示してます。<br />
+        クリックまたはタップして各チームの詳細を確認できます。
       </p>
+      <h2 className="text-2xl font-bold mb-4">チーム一覧</h2>
 
       <div className="flex flex-col md:flex-row gap-4 mb-8">
         <div className="flex-1">
@@ -109,6 +113,7 @@ export default function Home() {
           </div>
         )}
       </div>
+      <Footer />
     </main>
   );
 }
