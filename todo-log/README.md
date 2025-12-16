@@ -2,7 +2,7 @@
 
 Firestoreを活用した、シンプルなTODO管理アプリです。 「今日やるべきこと」に集中しつつ、過去のログをリストから振り返ることができます。
 
-https://next-app-todo-n5bq58nga-sugi-kun123s-projects.vercel.app/
+https://todo-log-pearl.vercel.app/
 
 ## 🚀 主な機能
 
