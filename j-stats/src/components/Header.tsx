@@ -25,7 +25,7 @@ const Header: React.FC = () => {
 
         {/* 例: ナビゲーションリンクやユーザーメニューなどをここに追加 */}
         <nav className="flex items-center space-x-4">
-          {/* <Link href="/about" className="text-gray-600 dark:text-gray-400 hover:text-blue-600">About</Link> */}
+          <Link href="/about" className="text-gray-600 dark:text-gray-400 hover:text-blue-600"><Home className="w-6 h-6 mr-2 text-blue-600 dark:text-blue-400" /></Link>
         </nav>
       </div>
     </header>
