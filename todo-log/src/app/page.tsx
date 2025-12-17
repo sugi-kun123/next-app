@@ -52,20 +52,10 @@ export default function TodoPage() {
   };
 
   return (
-    <main className="flex min-h-screen w-full max-w-4xl flex-col items-center py-20 px-8 mx-auto bg-white dark:bg-black">
-      <h1 className="text-3xl font-bold mb-4">📝 TODO LOG</h1>
-      <Link href="./history" className="w-full text-right text-blue-500 hover:underline">
+    <main className="flex min-h-screen w-full max-w-4xl flex-col items-center py-8 px-4 mx-auto bg-white dark:bg-black">
+      <Link href="./history" className="w-full text-right text-blue-500 mb-8 hover:underline">
         過去のTODO一覧へ →
       </Link>
-
-      <div className="flex items-center gap-4 mb-8">
-        <input
-          type="date"
-          value={currentDate}
-          onChange={(e) => setCurrentDate(e.target.value)}
-          className="border p-2 rounded dark:text-black"
-        />
-      </div>
 
       <form onSubmit={handleAdd} className="w-full flex gap-2 mb-10">
         <input

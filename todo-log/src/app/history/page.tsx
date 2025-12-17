@@ -28,16 +28,10 @@ export default function HistoryPage() {
   };
 
   return (
-    <main className="flex min-h-screen w-full max-w-4xl flex-col items-center py-20 px-8 mx-auto bg-white dark:bg-black">
-      <div className="w-full flex justify-between items-center mb-10">
-        <h1 className="text-3xl font-bold">📜 過去のTODO一覧</h1>
-        <Link href="/" className="text-blue-500 hover:underline">
-          ← 今日のTODOに戻る
-        </Link>
-      </div>
-
-      <div className="w-full flex flex-col md:flex-row gap-8">
-        <div className="w-full md:w-1/3 space-y-2">
+    <main className="flex min-h-screen w-full max-w-4xl flex-col py-8 px-4 mx-auto bg-white dark:bg-black">
+      <h1 className="text-2xl font-bold mb-10">📜 過去のTODO一覧</h1>
+      <div className="w-full flex flex-col md:flex-row gap-4">
+        <div className="w-full md:w-1/4 space-y-2">
           <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">活動ログがある日</p>
           <div className="flex flex-col gap-2 max-h-[60vh] overflow-y-auto pr-2">
             {activeDates.map(date => (
@@ -59,7 +53,7 @@ export default function HistoryPage() {
           </div>
         </div>
 
-        <div className="w-full md:w-2/3">
+        <div className="w-full md:w-3/4">
           {selectedDate ? (
             <div className="bg-white dark:bg-zinc-900 rounded-2xl border dark:border-zinc-800 p-6">
               <h2 className="text-xl font-bold mb-6 border-b pb-4">{selectedDate} の記録</h2>
