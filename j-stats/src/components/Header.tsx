@@ -1,8 +1,7 @@
 import React from 'react';
-import Link from 'next/link'; // Next.jsでルーティングするために使用
-import { BarChart, Home } from 'lucide-react'; // アイコンライブラリ
+import Link from 'next/link';
+import { BarChart } from 'lucide-react';
 
-// ヘッダーに表示するサイト名
 const SITE_NAME = "J-STATS";
 
 const Header: React.FC = () => {
@@ -18,15 +17,6 @@ const Header: React.FC = () => {
           <h1 className="min-w-max">{SITE_NAME}</h1>
         </Link>
         <p className="text-sm ml-2">- J1~3に所属するチームのリーグ成績を年度別にまとめています。</p>
-
-        {/* ---------------------------------- */}
-        {/* ナビゲーションやその他の要素 (必要に応じて追加) */}
-        {/* ---------------------------------- */}
-
-        {/* 例: ナビゲーションリンクやユーザーメニューなどをここに追加 */}
-        <nav className="flex items-center space-x-4">
-          {/* <Link href="/about" className="text-gray-600 dark:text-gray-400 hover:text-blue-600">About</Link> */}
-        </nav>
       </div>
     </header>
   );
